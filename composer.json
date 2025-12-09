@@ -1,5 +1,5 @@
 {
-    "name": "crscompany/popup-plugin",
+    "name": "crs-company/popup-plugin",
     "type": "october-plugin",
     "description": "No description provided yet...",
     "require": {
