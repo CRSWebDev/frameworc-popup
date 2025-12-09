@@ -1,0 +1,37 @@
+{% set popupConfig = {
+    showAfterSeconds: popupData.showAfterSeconds ?: 0,
+    showAgainAfterHours: popupData.showAgainAfterHours ?: 0,
+} %}
+
+<div class="Popup" data-control="popup" data-popup="{{ popupData.id }}" data-show-after-seconds="{{ popupConfig.showAfterSeconds }}" data-show-again-after-hours="{{ popupConfig.showAgainAfterHours }}">
+    <div class="Popup-overlay">
+    </div>
+    <div class="Popup-wrapper">
+        <div class="Popup-content">
+            <button class="Popup-close" data-popup-close>
+                <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z"/></svg>
+            </button>
+
+            {% if popupData.image %}
+                <div class="Popup-image">
+                    <img src="{{ popupData.image | media }}" alt="Popup image">
+                </div>
+            {% endif %}
+            {% if popupData.text %}
+                <div class="Popup-body">
+                    <div class="Popup-text">
+                        {{ popupData.text | content }}
+                    </div>
+                    {% if popupData.buttonText %}
+                        {% set isClose = popupData.buttonType == 'close' %}
+                        <div class="Popup-button">
+                            <a href="{{ isClose ? '#' : (popupData.buttonLink | link) }}" class="Button Button--primary" {% if isClose %}data-popup-close{% endif %}>
+                                {{ popupData.buttonText }}
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+uuid: 4dce4007-bbfe-480a-9462-0b5fe77bf366
+handle: Popup
+type: entry
+name: Popup
+
+navigation:
+    parent: Builder
+    icon: icon-window-restore
+    order: 270
+
+fields:
+    image:
+        label: Obrázek
+        type: mediafinder
+        maxItems: 1
+        mode: image
+        span: left
+
+    text:
+        label: Text
+        type: richeditor
+        span: right
+
+    _section_buttons:
+        type: section
+        label: Tlačítko
+
+    buttonType:
+        label: Funkce tlačítka
+        type: dropdown
+        options:
+            close: Zavřít popup
+            link: Odkaz na stránku
+
+    buttonText:
+        label: Text tlačítka
+        span: left
+
+    buttonLink:
+        label: Odkaz tlačítka
+        type: pagefinder
+        span: right
+        dependsOn: buttonType
+        trigger:
+            action: show
+            field: buttonType
+            condition: value[link]
+
+    _behaviour:
+        type: section
+        label: Chování popupu
+
+    showAfterSeconds:
+        type: number
+        label: Zobrazit po x sekundách
+        span: left
+        default: 10
+
+    showAgainAfterHours:
+        type: number
+        label: Zobrazit znovu po x hodinách
+        span: right
+        default: 48
