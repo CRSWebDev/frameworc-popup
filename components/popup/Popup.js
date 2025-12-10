@@ -23,7 +23,10 @@ oc.registerControl('popup', class extends oc.ControlBase {
     }
 
     closePopup(event) {
-        event.preventDefault();
+        if (event.target.getAttribute('href') === '#') {
+            event.preventDefault();
+        }
+
         this.element.classList.remove('isActive');
 
         localStorage.setItem(`fwcPopup${this.config.popup}`, Date.now().toString());

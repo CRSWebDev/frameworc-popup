@@ -13,9 +13,7 @@
             </button>
 
             {% if popupData.image %}
-                <div class="Popup-image">
-                    <img src="{{ popupData.image | media }}" alt="Popup image">
-                </div>
+                <div class="Popup-image" style="background-image: url('{{ popupData.image | media }}')"></div>
             {% endif %}
             {% if popupData.text %}
                 <div class="Popup-body">

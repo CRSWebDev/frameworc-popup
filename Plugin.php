@@ -18,7 +18,7 @@ class Plugin extends PluginBase
         return [
             'name' => 'Popup',
             'description' => 'No description provided yet...',
-            'author' => 'CRSCompany',
+            'author' => 'CRS',
             'icon' => 'icon-leaf'
         ];
     }
