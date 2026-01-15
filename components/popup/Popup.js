@@ -5,7 +5,6 @@ oc.registerControl('popup', class extends oc.ControlBase {
         this.isRecurring = this.configOpenAfterHours > 0;
 
         this.lastOpen = localStorage.getItem(`fwcPopup${this.config.popup}`);
-        console.log(this.lastOpen);
     }
 
     connect() {

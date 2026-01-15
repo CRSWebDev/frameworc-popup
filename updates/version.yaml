@@ -1,3 +1,4 @@
 v1.0.1: First version of Popup
 v1.0.2: Fix package name in composer.json
 v1.0.3: Image background instead of img tag
+v1.0.4: removed console log
