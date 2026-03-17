@@ -32,6 +32,8 @@ class Popup extends ComponentBase
 
         $data = EntryRecord::inSection('Popup')
             ->where('is_enabled', true)
+            ->where('expired_at', '>', date('Y-m-d H:i'))
+            ->where('published_at', '<=', date('Y-m-d H:i'))
             ->first();
 
         $this->page['popupData'] = $data;
