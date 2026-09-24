@@ -2,6 +2,7 @@ uuid: 4dce4007-bbfe-480a-9462-0b5fe77bf366
 handle: Popup
 type: entry
 name: Popup
+multisite: true
 
 navigation:
     parent: Builder

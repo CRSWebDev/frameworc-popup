@@ -2,17 +2,11 @@ oc.registerControl('popup', class extends oc.ControlBase {
     init() {
         this.configOpenAfterHours = parseInt(this.config.showAgainAfterHours) * 60 * 60 * 1000; // Convert hours to milliseconds
 
-        this.isRecurring = this.configOpenAfterHours > 0;
-
         this.lastOpen = localStorage.getItem(`fwcPopup${this.config.popup}`);
     }
 
     connect() {
         this.listen('click', '.Popup-close, .Popup-overlay, .Button', this.closePopup);
-
-        if (!this.isRecurring) {
-            return;
-        }
 
         if (!this.lastOpen || (Date.now() - this.configOpenAfterHours) > parseInt(this.lastOpen)) {
             setTimeout(() => {
